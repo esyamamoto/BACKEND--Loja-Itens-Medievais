@@ -3,12 +3,20 @@ import productService from '../service/product.service';
 
 // criar produto ---------------------------------------------------------------------------------------
 async function createProductController(req: Request, res: Response): Promise<Response> {
-  const { name, price, orderId } = req.body;
-  const newProduct = await productService.createProductService({ name, price, orderId });
-  if (!name || !price || !orderId) {
-    return res.status(400).json({ message: 'Dados inválidos' });
+  try {
+    const { name, price, orderId } = req.body;
+
+    if (!name || !price || !orderId) {
+      return res.status(400)
+        .json({ message: 'Dados inválidos. Precisa de nome, preço e orderId.' });
+    }
+
+    const newProduct = await productService.createProductService({ name, price, orderId });
+    return res.status(201).json(newProduct);
+  } catch (error) {
+    console.error('Erro ao criar produto:', error);
+    return res.status(500).json({ message: 'Erro interno do servidor ao criar produto.' });
   }
-  return res.status(201).json(newProduct);
 }
 // listar produto ---------------------------------------------------------------------------------------
 async function listProductsController(req: Request, res: Response): Promise<void> {
