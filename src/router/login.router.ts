@@ -1,7 +1,7 @@
 // src/routers/login.router.ts
 
 import { Router } from 'express';
-import loginController from '../database/controller/login.controller';
+import loginController from '../controller/login.controller';
 
 const loginRouter = Router();
 

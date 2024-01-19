@@ -14,7 +14,7 @@ async function createProductController(req: Request, res: Response): Promise<Res
     const newProduct = await productService.createProductService({ name, price, orderId });
     return res.status(201).json(newProduct);
   } catch (error) {
-    console.error('Erro ao criar produto:', error);
+    console.error('Erro ao criar produto', error);
     return res.status(500).json({ message: 'Erro interno do servidor ao criar produto.' });
   }
 }
@@ -24,8 +24,9 @@ async function listProductsController(req: Request, res: Response): Promise<void
     const response = await productService.listProductsService();
     res.status(200).json(response);
   } catch (error) {
-    console.error('Erro ao listar produtos:', error);
-    res.status(500).json({ message: 'Erro interno do servidor' });
+    console.error('Erro ao listar produtos', error);
+    res.status(500)
+      .json({ message: 'Erro ao criar produto. Verifique os dados e tente novamente.' });
   }
 }
 

@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
-import { ServiceResponse } from '../../types/ServiceResponse';
-import { Token } from '../../types/token';
-import jwt from '../../utils/jwt.util';
-import UserModel from '../models/user.model';
-import { Login } from '../../types/login';
+import { ServiceResponse } from '../types/ServiceResponse';
+import { Token } from '../types/token';
+import jwt from '../utils/jwt.util';
+import UserModel from '../database/models/user.model';
+import { Login } from '../types/login';
 
 async function login(user: Login): Promise<ServiceResponse<Token>> {
   if (!user.username || !user.password) {

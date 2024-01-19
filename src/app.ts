@@ -1,6 +1,6 @@
 import express from 'express';
-import productController from './database/controller/product.controller'; 
-import orderController from './database/controller/order.controller';
+import productController from './controller/product.controller'; 
+import orderController from './controller/order.controller';
 import loginRouter from './router/login.router';
 
 const app = express();
