@@ -27,9 +27,15 @@ Desenvolvi as camadas de Service e Controllers da aplicação em seu código, ut
 <details>
   <summary><strong>🐳 Especificações sobre uso do Docker</strong></summary>
 
-> Rode os serviços com o comando `docker-compose up -d --build`.
+>Verificar e Reiniciar o Docker Compose
+`docker-compose down`
+`docker-compose up -d`
 
-- Lembre-se de parar o `mysql` se estiver usando localmente na porta padrão (`3306`), ou adapte, caso queria fazer uso da aplicação em containers
+> Rode os serviços com o comando
+`docker-compose up -d --build`
+
+- Lembre-se de parar o `mysql` se estiver usando localmente na porta padrão (`3306`)
+
 - A partir daqui você pode rodar o container `trybesmith_api` via CLI ou abri-lo no VS Code.
   > Rode o comando `npm run db:reset` (este comando vai funcionar somente após a criação do tipos solicitados no requisito) para criar o banco de dados, as tabelas que serão utilizadas e populá-las.
 
@@ -43,6 +49,10 @@ Desenvolvi as camadas de Service e Controllers da aplicação em seu código, ut
 
   > `docker logs -f <id_do_container>`: para visualizar os logs do seu servidor com nodemon;
 
+  > `lsof -i :3001`: Verificar o Uso da Porta;
+
+  > `npm run lint`: rodar o ESLint
+
 </details>
 
 <details>
@@ -50,7 +60,7 @@ Desenvolvi as camadas de Service e Controllers da aplicação em seu código, ut
 
 ## Seus Testes
 
-Para rodar os seus testes localmente utilize o seguinte comando:
+Para rodar os seus testes localmente utilize o seguinte comando (dentro do container):
 
 ```bash
 npm run test:local
@@ -67,7 +77,7 @@ npm run test:coverage
   <summary><strong>🎲 Diagrama Entidade Relacionamento do projeto</strong></summary>
   O banco de dados do projeto segue a estrutura abaixo:
 
-  <img src="images/diagram-der.png" height="200px" />
+  <img src="./src/images/diagram-der.png" height="200px" />
 
 </details>
 <details>
